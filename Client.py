@@ -1,12 +1,20 @@
 import socket
 import threading
 
+nickname = ''
+
 class Client:
     def __init__(self, host, port):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock = sock
         self.sock.connect((host, port))
         self.sock.send(b'1')
+        print('Welcome to chat room!')
+        nickname = input('Input your nickname: ')
+        print('Now Lets Chat,', nickname)
+        print(nickname + ': ', end='')
+        self.sock.send(nickname.encode())
+
 
     def sendThreadFunc(self):
         while True:

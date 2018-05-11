@@ -3,6 +3,8 @@ import socket
 import threading
 from time import gmtime, strftime
 
+mydict = dict()  
+mylist = list()
 
 class Server:
     def __init__(self, host, port):
@@ -16,6 +18,7 @@ class Server:
     def checkConnection(self):
         connection, addr = self.sock.accept()
         print('Accept a new connection', connection.getsockname(), connection.fileno())
+        
 
         try:
             buf = connection.recv(1024).decode()
@@ -41,7 +44,10 @@ class Server:
                     pass
 
     def subThreadIn(self, myconnection, connNumber):
+        nickname = myconnection.recv(1024).decode()
+        mydict[myconnection.fileno()] = nickname
         self.mylist.append(myconnection)
+        self.tellOthers(connNumber, 'System: ' + nickname + ' in the chat room')
         while True:
             try:
                 recvedMsg = myconnection.recv(1024).decode()
