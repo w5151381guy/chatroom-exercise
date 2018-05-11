@@ -52,7 +52,8 @@ class Server:
             try:
                 recvedMsg = myconnection.recv(1024).decode()
                 if recvedMsg:
-                    self.tellOthers(connNumber, recvedMsg)
+                    print(mydict[connNumber], ':', recvedMsg)  
+                    self.tellOthers(connNumber, mydict[connNumber]+':'+recvedMsg)
                 else:
                     pass
 
@@ -60,8 +61,8 @@ class Server:
                 try:
                     self.mylist.remove(myconnection)
                 except:
-                    pass
-
+                    pass 
+                self.tellOthers(connNumber, 'System: '+mydict[connNumber]+' left the chat room') 
                 myconnection.close()
                 return
 

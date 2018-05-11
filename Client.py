@@ -12,7 +12,7 @@ class Client:
         print('Welcome to chat room!')
         nickname = input('Input your nickname: ')
         print('Now Lets Chat,', nickname)
-        print(nickname + ': ', end='')
+        print(nickname + ':')
         self.sock.send(nickname.encode())
 
 
