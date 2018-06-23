@@ -1,0 +1,21 @@
+.boxed-view {
+  align-items: center;
+  // background: $light-gray;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.boxed-view-loginForm {
+  padding: 0rem;
+  text-align: center;
+  // width: 35rem;
+  // height: 43rem;
+}
+
+.boxed-view-home {
+  padding: 0rem;
+  text-align: center;
+  width: 100rem;
+}

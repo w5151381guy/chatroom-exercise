@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  // overflow-x: scroll;
+  // white-space: nowrap;
+}
+
+html, body, #app{
+  min-height: 100vh;
+  max-height: 100vh;
+  max-width: 100%;
+}
+
+// overwrite react-bootstrap panel
+.panel-heading{
+  text-align: center;
+}
+
+.panel-body{
+  text-align:center;
+}
+
+.container{
+  // margin: 0
+}
+
+.navbar {
+  margin-bottom: 0px;
+  min-height: 7vh;
+}
+
+.editor {
+  border: 1px solid #F1F1F1 !important;
+  border-radius: 2px !important;
+  height: 500px !important;
+  overflow-y: hidden !important;
+  padding: 0 !important;
+}
+
+// 選擇隊伍數量的dropdown-button，
+ul.dropdown-menu{
+  overflow: auto;
+  max-height: 160px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  font-weight: bold;
+  color: #337ab7;
+}

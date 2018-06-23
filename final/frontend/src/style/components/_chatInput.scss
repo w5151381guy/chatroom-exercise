@@ -1,0 +1,57 @@
+.input-box{
+  display: flex;
+  width: 100%;
+  height: $input-box-height;
+  border-top: 2px solid #DDD;
+  // box-shadow: 1px -1px 1px 1px rgba(0, 0, 0, 0.15)
+}
+
+.input-box form{
+  width: 100%;
+  height: 100%;
+}
+
+.image-section{
+  height: 40%;
+  padding: 5px;
+  border-bottom: 1px solid #DDD; 
+  display: flex;
+  justify-content: flex-start;
+  background-color: #EFEFEF;
+}
+
+.image-section i{
+  margin-right: 10px;
+}
+
+.image-section span{
+  font-size: 17px;
+}
+
+.text-section{
+  height: 60%;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.text-section input{
+  font-size: 100%;
+  padding: 5px;
+  border: 1px solid #BBB;
+  border-radius: 3px;
+  width: 80%;
+  // flex: 0 0 calc(90% - 1rem);
+}
+
+.text-section i{
+  width: 10%;
+  // flex: 0 0 calc(10% - 1rem);
+}
+
+.image-section i:hover,
+.text-section i:hover{
+  cursor: pointer;
+}

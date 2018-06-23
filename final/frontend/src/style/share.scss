@@ -1,0 +1,13 @@
+@import './variables';
+
+:export{
+  headerHeight: $header-height;
+  pageContentSidebarWidth: $page-content-sidebar-width;
+  pageContentMainWidth: $page-content-main-width;
+  pageContentHeight: $page-content-height;
+}
+
+
+.root {
+  color: $page-content-sidebar-width;
+}

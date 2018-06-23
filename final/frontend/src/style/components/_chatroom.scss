@@ -1,0 +1,34 @@
+.input-msg {
+  // margin: 10px 0px;
+  height: 50px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  color: #1e1e1e;
+  width: 80%;
+  border: 1px solid #dee0e0;
+  padding: 0 20px;
+  transition: border-color .5s ease-in-out;
+}
+
+.input-msg:focus {
+  border: 1px solid #AF9570;
+  outline: none !important;
+}
+
+.input-msg-submit {
+  background-color: #323232;
+  color: white;
+  border: none;
+  position: relative;
+  transition: .5s ease-in-out;
+  text-decoration: none;
+  padding: 20px 80px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: -7px 7px 0px rgba(50,50,50,0.15);
+  margin-top: 20px;
+
+  &:hover{
+      box-shadow: -10px 10px 0px rgba(50,50,50,0.15);
+      background-color: #1e1e1e;
+  }
+}

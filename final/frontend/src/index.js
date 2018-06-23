@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Chatroom from './component/Chatroom'
+import Main from './component/Main'
+require('./style/main.scss')
 
-ReactDOM.render(<Chatroom />, document.getElementById('app'))
+ReactDOM.render(<Main />, document.getElementById('app'))

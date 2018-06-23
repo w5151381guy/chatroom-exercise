@@ -8,20 +8,10 @@ class Messages extends Component {
   }
 
   render() {
-    let indexOfImg = -1 // num of image
     return (
       <div className="messages" id="messageList">
         {this.props.messages.map((message, i) => {
-          indexOfImg = message.msgtype === 'image' ? indexOfImg + 1 : indexOfImg
-          // console.log(indexOfImg)
-          return (
-            <Message
-              key={i}
-              message={message}
-              openLightbox={this.props.openLightbox}
-              indexOfImg={indexOfImg}
-            />
-          )
+          return <Message key={i} message={message} />
         })}
       </div>
     )

@@ -1,0 +1,29 @@
+.page-content {
+  display: flex;
+  height: $page-content-height;
+  // max-width: 100%;// $site-max-width;
+}
+
+.page-content-sidebar {
+  display: flex;
+  flex-direction: column;
+  transition: visibility 1s ease;
+  margin-left: 0px;
+  transition: margin-left 1s ease;
+  // width: $page-content-sidebar-width;
+}
+
+.page-content-main {
+  display: flex;
+  width: 100%;//$page-content-main-width;
+}
+
+.active-game {
+  display: flex;
+  width: 100%;
+}
+
+.inactive-game {
+  display: none;
+  width: 100%;
+}

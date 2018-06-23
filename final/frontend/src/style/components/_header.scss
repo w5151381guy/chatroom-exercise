@@ -1,0 +1,37 @@
+.header {
+  background: $header-bg;
+  color: $header-color;
+}
+
+.header-content {
+  display: flex;
+  height: $header-height;
+  justify-content: space-between;
+  max-width: $site-max-width;
+  margin: 0 auto;
+  padding: $space;
+}
+
+.header-title {
+  margin: 0;
+}
+.navbar-brand{
+  font-size: 20px;
+  font-weight: bold;
+}
+.navbar-collapse{
+  font-size: 18px;
+}
+.nav-item-name a{
+  color: black !important;
+  font-weight: bold;
+  font-size: 20px;
+}
+.nav-item a{
+  color: $primary !important;
+  font-weight: bold;
+  font-size: 25px;
+}
+.nav-item-name .fa-user{
+  margin-right: 3px;
+}
