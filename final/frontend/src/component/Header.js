@@ -11,10 +11,13 @@ import { CLIENTID } from '../utils/config'
 import { GoogleLogin, GoogleLogout } from 'react-google-login'
 
 class Header extends Component {
-  state = {
-    showAlert: false,
-    user: this.props.user,
-    unread: this.props.unread,
+  constructor(props) {
+    super(props)
+    this.state = {
+      showAlert: false,
+      user: this.props.user,
+      unread: this.props.unread,
+    }
   }
 
   componentWillReceiveProps(props) {
@@ -27,12 +30,17 @@ class Header extends Component {
   }
 
   onLogout = () => {
-    this.setState({ user: '' })
+    sessionStorage.removeItem('user')
+    this.props.onUserChange()
   }
 
   onLogin = data => {
-    console.log(data.profileObj.name)
-    this.setState({ user: { type: 'student', name: data.profileObj.name } })
+    const userInfo = JSON.stringify({
+      type: 'student',
+      name: data.profileObj.name,
+    })
+    sessionStorage.setItem('user', userInfo)
+    this.props.onUserChange()
   }
 
   onClickItem = eventKey => {
@@ -86,7 +94,8 @@ class Header extends Component {
   }
 
   render() {
-    let user = this.state.user
+    let user = this.props.user
+    console.log(user)
     return (
       <Navbar>
         <Navbar.Header>

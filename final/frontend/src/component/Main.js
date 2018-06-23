@@ -4,7 +4,9 @@ import Header from './Header'
 
 class Main extends Component {
   state = {
-    user: '', //{ type: 'student', name: 'Andy' },
+    user: JSON.parse(sessionStorage.getItem('user'))
+      ? JSON.parse(sessionStorage.getItem('user'))
+      : '', //{ type: 'student', name: 'Andy' },
     unread: 0,
     sidebarDocked: false,
   }
@@ -21,6 +23,14 @@ class Main extends Component {
     })
   }
 
+  onUserChange = () => {
+    this.setState({
+      user: JSON.parse(sessionStorage.getItem('user'))
+        ? JSON.parse(sessionStorage.getItem('user'))
+        : '',
+    })
+  }
+
   render() {
     return (
       <div>
@@ -29,6 +39,7 @@ class Main extends Component {
           onSidebarDocked={this.onSidebarDocked}
           unread={this.state.unread}
           page="main"
+          onUserChange={this.onUserChange}
         />
         <div className="page-content">
           <div className="page-content-main">
