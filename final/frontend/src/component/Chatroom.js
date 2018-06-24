@@ -14,6 +14,10 @@ class Chatroom extends Component {
     }
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({ user: props.user })
+  }
+
   render() {
     return <ChatApp {...this.state} onUnread={this.props.onUnread} />
   }

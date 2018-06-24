@@ -27,7 +27,8 @@ class Container extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setState({ sidebarDocked: props.sidebarDocked })
+    console.log(props)
+    this.setState({ sidebarDocked: props.sidebarDocked, user: props.user })
   }
 
   onSetSidebarOpen = open => {
@@ -48,7 +49,11 @@ class Container extends React.Component {
     return (
       <Sidebar
         sidebar={
-          <Chatroom onUnread={this.props.onUnread} user={this.state.user} />
+          this.state.user === '' ? (
+            ''
+          ) : (
+            <Chatroom onUnread={this.props.onUnread} user={this.state.user} />
+          )
         }
         open={this.state.sidebarOpen}
         docked={this.state.sidebarDocked}

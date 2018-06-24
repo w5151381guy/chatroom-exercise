@@ -15,7 +15,9 @@ class Header extends Component {
     super(props)
     this.state = {
       showAlert: false,
-      user: this.props.user,
+      user: JSON.parse(sessionStorage.getItem('user'))
+        ? JSON.parse(sessionStorage.getItem('user'))
+        : '',
       unread: this.props.unread,
     }
   }
@@ -30,16 +32,23 @@ class Header extends Component {
   }
 
   onLogout = () => {
-    sessionStorage.removeItem('user')
-    this.props.onUserChange()
+    // sessionStorage.removeItem('user')
+    delete sessionStorage.user
+    this.setState({ user: '' })
+    this.props.onSidebarDocked(false)
+    location.reload()
   }
 
   onLogin = data => {
+    console.log(data)
+    if (data === undefined) return
+    console.log(data.profileObj.name)
     const userInfo = JSON.stringify({
       type: 'student',
       name: data.profileObj.name,
     })
     sessionStorage.setItem('user', userInfo)
+    this.setState({ user: JSON.parse(userInfo) })
     this.props.onUserChange()
   }
 
@@ -48,13 +57,13 @@ class Header extends Component {
     if (eventKey === 1) {
       this.showChatroom()
     } else if (eventKey === 2) {
-      this.setState({ showAlert: true })
+      this.onLogout()
     } else if (eventKey === 3) {
       this.onLogin()
     }
   }
 
-  appendHead = user => {
+  appendHeader = user => {
     const logout = (
       <Nav onSelect={k => this.onClickItem(k)} pullRight>
         <NavItem eventKey={0} className="nav-item-name">
@@ -94,8 +103,7 @@ class Header extends Component {
   }
 
   render() {
-    let user = this.props.user
-    console.log(user)
+    let user = this.state.user
     return (
       <Navbar>
         <Navbar.Header>
@@ -104,7 +112,7 @@ class Header extends Component {
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
-        <Navbar.Collapse>{this.appendHead(user)}</Navbar.Collapse>
+        <Navbar.Collapse>{this.appendHeader(user)}</Navbar.Collapse>
       </Navbar>
     )
   }

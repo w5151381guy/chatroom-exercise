@@ -27,6 +27,10 @@ class ChatApp extends Component {
     this.setState({ user: user, socketURL: socketURL })
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({ user: props.user })
+  }
+
   sendHandler = text => {
     let { user } = this.state
     const socket = this.refs.socket

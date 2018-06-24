@@ -16,14 +16,15 @@ class Main extends Component {
     if (!this.state.sidebarDocked) this.setState({ unread })
   }
 
-  onSidebarDocked = () => {
+  onSidebarDocked = docked => {
     this.setState({
-      sidebarDocked: !this.state.sidebarDocked,
+      sidebarDocked: docked === undefined ? !this.state.sidebarDocked : docked,
       unread: 0,
     })
   }
 
   onUserChange = () => {
+    console.log('onUserChange')
     this.setState({
       user: JSON.parse(sessionStorage.getItem('user'))
         ? JSON.parse(sessionStorage.getItem('user'))
@@ -32,10 +33,12 @@ class Main extends Component {
   }
 
   render() {
+    console.log(this.state.user)
+
     return (
       <div>
         <Header
-          user={this.state.user}
+          // user={this.state.user}
           onSidebarDocked={this.onSidebarDocked}
           unread={this.state.unread}
           page="main"

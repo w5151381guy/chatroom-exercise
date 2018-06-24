@@ -14,6 +14,10 @@ class ChatInput extends Component {
     }
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({ user: props.user })
+  }
+
   onSubmit = e => {
     e.preventDefault()
 
