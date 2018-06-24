@@ -9,7 +9,7 @@ RUN npm run build
 # ========== Use nginx to serve static file ==========
 FROM nginx:1.14-alpine
 
-COPY --from=build /app/public /app/public
+COPY --from=build /app/dist /app/dist
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN nginx -t
