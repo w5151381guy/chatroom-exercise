@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  api_server:
+    build: ./back-end
+    ports:
+      - "443:8000"
+    depends_on:
+      - mongo
+      - redis
+    restart: always
+
+  web:
+    build: ./front-end
+    ports:
+      - "3000:80"
+    depends_on:
+      - api_server
+    restart: always
+  
+  redis:
+    image: redis:4-alpine
+    volumes:
+      - "${PWD}/backup/redis-data/:/data"
+    command: redis-server --appendonly yes
+    restart: always
+
+
+volumes:
+  redis-data:
