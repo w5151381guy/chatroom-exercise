@@ -1,7 +1,7 @@
 FROM node:10-alpine AS build
 
 WORKDIR /app
-ADD package.json yarn.lock webpack.prod.js /app/
+ADD package.json yarn.lock webpack.config.js webpack.prod.js /app/
 ADD ./src /app/src
 RUN npm install -g yarn  
 RUN yarn
