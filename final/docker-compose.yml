@@ -6,7 +6,6 @@ services:
     ports:
       - "443:8000"
     depends_on:
-      - mongo
       - redis
     restart: always
 
