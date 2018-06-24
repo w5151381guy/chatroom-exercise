@@ -1,10 +1,11 @@
 FROM node:10-alpine AS build
 
 WORKDIR /app
-ADD package.json package-lock.json webpack.prod.js /app/
+ADD package.json yarn.lock webpack.prod.js /app/
 ADD ./src /app/src
-RUN npm ci 
-RUN npm run build
+RUN npm install -g yarn  
+RUN yarn
+RUN yarn run build
 
 # ========== Use nginx to serve static file ==========
 FROM nginx:1.14-alpine
