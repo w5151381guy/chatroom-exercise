@@ -49,7 +49,6 @@ class ChatConsumer(WebsocketConsumer):
         msgList = []
         for message in messages:
             # print(message.timestamp.strftime("%H:%M"))
-            print(message)
             msgList.append({
                 # 'key': message.key,
                 'usertype': message.usertype,
@@ -94,9 +93,21 @@ class ChatConsumer(WebsocketConsumer):
     def disconnect(self, close_code):
 
         msg = None
+        text = self.username+'離開聊天室'
         room = Room.objects.get(label=self.room_label)
-        room.messages.create(usertype='system', text=self.username+'離開聊天室')
+        msg = room.messages.create(usertype='system', text=text)
         
+        print('disconnect')
+        async_to_sync(self.channel_layer.group_send)(
+            self.room_group_name,
+            {
+                'type': 'leave_message',
+                'usertype': 'system',
+                'username': self.username,
+                'text': text,
+                'timestamp': msg.timestamp.strftime("%H:%M")
+            }
+        )
 
         # Leave room group
         async_to_sync(self.channel_layer.group_discard)(
@@ -128,7 +139,8 @@ class ChatConsumer(WebsocketConsumer):
         }))
 
     def leave_message(self, event):
-
+        
+        print('leave_message')
         # Send message to WebSocket
         self.send(text_data=json.dumps({
             'type': 'leave',

@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
+from datetime import datetime
 
 class Room(models.Model):
 
@@ -11,7 +12,7 @@ class Room(models.Model):
     # teacher   = models.CharField(max_length=20)
     # closed    = models.BooleanField(default=False) 
     # nTeam     = models.IntegerField(default=5)
-    timestamp = models.DateTimeField(default=timezone.now, db_index=True)
+    timestamp = models.DateTimeField(default=datetime.now(), db_index=True)
 
     @property
     def formatted_timestamp(self):
@@ -28,7 +29,7 @@ class Message(models.Model):
     username  = models.CharField(max_length=20, default='')
     msgtype   = models.CharField(max_length=20, default='text')
     text      = models.TextField()
-    timestamp = models.DateTimeField(default=timezone.now, db_index=True)
+    timestamp = models.DateTimeField(default=datetime.now(), db_index=True)
 
     def __unicode__(self):
         return '[{timestamp}] {handle}: {message}'.format(**self.as_dict())
