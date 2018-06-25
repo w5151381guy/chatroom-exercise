@@ -25,7 +25,7 @@ backup_folder = '/backup/'
 SECRET_KEY = '_xz*lfm23=2b80tl-&b%x2!qs9g+&irbibqabpx!3jn+qven4%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # SECURE_SSL_REDIRECT = True
 

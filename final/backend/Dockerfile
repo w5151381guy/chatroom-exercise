@@ -13,6 +13,6 @@ COPY --from=build /usr/local/lib/python3.6/site-packages /usr/local/lib/python3.
 EXPOSE 8000
 ENV PYTHONPATH=/usr/local/lib/python3.6/site-packages
 
-RUN python manage.py collectstatic
+RUN python manage.py collectstatic && python manage.py migrate --run-syncdb
 
 CMD ["python","manage.py", "runserver", "0.0.0.0:8000"]
