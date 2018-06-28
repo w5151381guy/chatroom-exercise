@@ -1,5 +1,18 @@
 import React from 'react'
 import Sidebar from 'react-sidebar'
+import image00 from '../image/0-0.jpg'
+import image10 from '../image/1-0.jpg'
+import image20 from '../image/2-0.jpg'
+import image30 from '../image/3-0.jpg'
+import image31 from '../image/3-1.jpg'
+import image32 from '../image/3-2.jpg'
+import image40 from '../image/4-0.jpg'
+import image41 from '../image/4-1.jpg'
+import image42 from '../image/4-2.jpg'
+import image43 from '../image/4-3.jpg'
+import image44 from '../image/4-4.jpg'
+import image45 from '../image/4-5.jpg'
+import image50 from '../image/5-0.jpg'
 
 // ui
 import Chatroom from './Chatroom'
@@ -64,53 +77,53 @@ class Container extends React.Component {
           <div className="slides">
             <section>
               <section>
-                <img src="../image/0-0.jpg" width="100%" />
+                <img src={image00} width="100%" />
               </section>
             </section>
             <section>
               <section>
-                <img src="../image/1-0.jpg" width="100%" />
+                <img src={image10} width="100%" />
               </section>
             </section>
             <section>
               <section>
-                <img src="../image/2-0.jpg" width="100%" />
+                <img src={image20} width="100%" />
               </section>
             </section>
             <section>
               <section>
-                <img src="../image/3-0.jpg" width="100%" />
+                <img src={image30} width="100%" />
               </section>
               <section>
-                <img src="../image/3-1.jpg" width="100%" />
+                <img src={image31} width="100%" />
               </section>
               <section>
-                <img src="../image/3-2.jpg" width="100%" />
-              </section>
-            </section>
-            <section>
-              <section>
-                <img src="../image/4-0.jpg" width="100%" />
-              </section>
-              <section>
-                <img src="../image/4-1.jpg" width="100%" />
-              </section>
-              <section>
-                <img src="../image/4-2.jpg" width="100%" />
-              </section>
-              <section>
-                <img src="../image/4-3.jpg" width="100%" />
-              </section>
-              <section>
-                <img src="../image/4-4.jpg" width="100%" />
-              </section>
-              <section>
-                <img src="../image/4-5.jpg" width="100%" />
+                <img src={image32} width="100%" />
               </section>
             </section>
             <section>
               <section>
-                <img src="../image/5-0.jpg" width="100%" />
+                <img src={image40} width="100%" />
+              </section>
+              <section>
+                <img src={image41} width="100%" />
+              </section>
+              <section>
+                <img src={image42} width="100%" />
+              </section>
+              <section>
+                <img src={image43} width="100%" />
+              </section>
+              <section>
+                <img src={image44} width="100%" />
+              </section>
+              <section>
+                <img src={image45} width="100%" />
+              </section>
+            </section>
+            <section>
+              <section>
+                <img src={image50} width="100%" />
               </section>
             </section>
           </div>
