@@ -108,7 +108,7 @@ class Header extends Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a>Final Project</a>
+            <a>課程互動平台</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
