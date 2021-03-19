@@ -13,7 +13,7 @@ constantly==15.1.0
 daphne==2.1.1
 Django==2.0.5
 django-cors-headers==2.2.0
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 google-api-core==1.2.0
 google-auth==1.5.0
 google-cloud-core==0.28.1
